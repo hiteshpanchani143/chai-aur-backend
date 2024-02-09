@@ -1,11 +1,11 @@
 //  ------------ with promiss -----------//
 const asyncHandler = (func) => {
-  (req, res, next) => {
+  return (req, res, next) => {
     Promise.resolve(func(req, res, next)).catch((err) => next(err))
   }
 }
 
-export default asyncHandler;
+export { asyncHandler };
 
 // const asyncHandler = () => () => {};
 // const asyncHandler = (func) => () => {};

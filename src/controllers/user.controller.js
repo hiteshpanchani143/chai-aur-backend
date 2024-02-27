@@ -19,7 +19,7 @@ const generateAccessAndRefreshToken = async (userId) => {
   } catch (error) {
     throw new ApiError(500, "Something went wrong while generating refresh and access token")
   }
-}
+};
 
 const registerUser = asyncHandler(async (req, res) => {
   // get user detailes from frontend /  postman
@@ -84,7 +84,7 @@ const registerUser = asyncHandler(async (req, res) => {
     new ApiResponse(200, createdUser, "User Registerd Succesfully")
   )
 
-})
+});
 
 const loginUser = asyncHandler(async (req, res) => {
   // req body -> data
@@ -135,7 +135,7 @@ const loginUser = asyncHandler(async (req, res) => {
         "User Logged in Successfully"
       )
     )
-})
+});
 
 const logoutUser = asyncHandler(async (req, res) => {
   await User.findByIdAndUpdate(req.user._id,
@@ -165,7 +165,7 @@ const logoutUser = asyncHandler(async (req, res) => {
         "User Logged Out"
       )
     )
-})
+});
 
 const refreshAccessToken = asyncHandler(async (req, res) => {
 
@@ -210,6 +210,8 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
   }
 
 
-})
+});
+
+
 
 export { registerUser, loginUser, logoutUser, refreshAccessToken }
